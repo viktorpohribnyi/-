@@ -4,7 +4,6 @@ import { AnimeContext } from "../context/AnimeContext";
 import { useUser } from "../context/UserContext"; 
 import styled from "styled-components";
 
-// Стилі
 const DetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -27,6 +26,8 @@ const DetailsWrapper = styled.div`
 
 const AnimeImage = styled.img`
   width: 40%;
+  height: 700px; 
+  object-fit: cover; 
   border-radius: 12px;
   transition: transform 0.3s ease-in-out;
 
