@@ -11,7 +11,6 @@ const Profile = () => {
   const [newUsername, setNewUsername] = useState(user ? user.username : "");
 
   const handleSave = () => {
-    // Збереження нового імені користувача
     logoutUser();
     localStorage.setItem("user", JSON.stringify({ username: newUsername }));
   };

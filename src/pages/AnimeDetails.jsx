@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AnimeContext } from "../context/AnimeContext";
-import { useUser } from "../context/UserContext"; // імпортуємо хук для поточного користувача
+import { useUser } from "../context/UserContext"; 
 import styled from "styled-components";
 
 // Стилі
@@ -217,7 +217,7 @@ const Comment = styled.div`
 const AnimeDetails = () => {
   const { id } = useParams();
   const { animeList, animeRatings, animeComments, addRating, addComment } = useContext(AnimeContext);
-  const { user } = useUser(); // Додаємо доступ до поточного користувача
+  const { user } = useUser(); 
 
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
@@ -287,10 +287,10 @@ const AnimeDetails = () => {
 
   const handleSubmitComment = () => {
     if (comment) {
-      const authorName = user && user.username ? user.username : "Guest"; // Відображення нікнейму користувача або "Guest"
-      const commentWithAuthor = { text: comment, author: authorName, avatar: user ? user.avatar : null }; // Додаємо аватарку користувача
+      const authorName = user && user.username ? user.username : "Guest"; 
+      const commentWithAuthor = { text: comment, author: authorName, avatar: user ? user.avatar : null }; 
   
-      addComment(anime.mal_id, commentWithAuthor); // Додаємо коментар з автором
+      addComment(anime.mal_id, commentWithAuthor); 
       setComment("");
     }
   };

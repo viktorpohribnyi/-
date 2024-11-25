@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useUser } from "../context/UserContext"; // Імпортуємо UserContext для доступу до даних користувача
+import { useUser } from "../context/UserContext";
 import styled from "styled-components";
+import sparkleIcon from "../assets/anime_world.png"; 
 
 const HeaderWrapper = styled.header`
-  background-color: #2c2c54; /* Колір, такий самий як у футера */
+  background-color: #2c2c54; 
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -31,27 +32,28 @@ const Logo = styled.h1`
   text-transform: uppercase;
   position: relative;
   display: inline-block;
-  
+
   &:after {
-    content: "✨";
+    content: "";
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -35px;
+    width: 50px; 
+    height: 50px;
+    background-image: url(${sparkleIcon});
+    background-size: contain;
+    background-repeat: no-repeat;
     animation: sparkle 1.5s ease-in-out infinite;
   }
 
   @keyframes sparkle {
-    0% {
+    0%, 100% {
       transform: scale(1);
-      opacity: 0;
+      opacity: 0.5;
     }
     50% {
-      transform: scale(1.5);
+      transform: scale(1.2);
       opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
     }
   }
 `;
@@ -92,7 +94,7 @@ const NavLinks = styled.nav`
 `;
 
 const Header = () => {
-  const { user } = useUser(); // Отримуємо дані про користувача з контексту
+  const { user } = useUser(); 
 
   return (
     <HeaderWrapper>
@@ -102,13 +104,12 @@ const Header = () => {
         <Link to="/favorities">Favorities</Link>
         <Link to="/about">About</Link>
 
-        {/* Якщо користувач увійшов, відображається "Мій профіль", якщо ні — "Увійти / Зареєструватися" */}
         {user ? (
           <Link to="/profile">My Profile</Link>
         ) : (
           <>
-            <Link to="/login">Login</Link> {/* Лінк на Login */}
-            <Link to="/register">Register</Link> {/* Лінк на Register */}
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </>
         )}
       </NavLinks>

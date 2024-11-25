@@ -3,11 +3,11 @@ import React, { createContext, useState, useEffect } from "react";
 export const AnimeContext = createContext();
 
 export const AnimeProvider = ({ children }) => {
-  const [animeList, setAnimeList] = useState([]); // Список аніме
-  const [favorities, setFavorities] = useState([]); // Улюблені аніме
-  const [animeRatings, setAnimeRatings] = useState({}); // Оцінки
-  const [animeComments, setAnimeComments] = useState({}); // Коментарі (з авторством і аватарками)
-  const [currentUser, setCurrentUser] = useState(null); // Данні про авторизованого користувача
+  const [animeList, setAnimeList] = useState([]); 
+  const [favorities, setFavorities] = useState([]); 
+  const [animeRatings, setAnimeRatings] = useState({}); 
+  const [animeComments, setAnimeComments] = useState({}); 
+  const [currentUser, setCurrentUser] = useState(null); 
 
   const addToFavorities = (anime) => {
     if (!favorities.some((fav) => fav.id === anime.id)) {
@@ -31,16 +31,15 @@ export const AnimeProvider = ({ children }) => {
   };
 
   const loginUser = (user) => {
-    setCurrentUser(user); // Логін користувача
+    setCurrentUser(user); 
   };
 
-  // Завантаження списку аніме з API
   useEffect(() => {
     const fetchAnimeList = async () => {
       try {
         const response = await fetch("https://api.jikan.moe/v4/anime");
         const data = await response.json();
-        setAnimeList(data.data); // Зберігаємо список аніме в контексті
+        setAnimeList(data.data); 
       } catch (error) {
         console.error("Failed to fetch anime:", error);
       }

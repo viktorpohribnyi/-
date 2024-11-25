@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { UserProvider } from "./context/UserContext"; // Імпорт контексту для користувача
-import { AnimeProvider } from "./context/AnimeContext"; // Імпорт контексту для аніме
+import { UserProvider } from "./context/UserContext"; 
+import { AnimeProvider } from "./context/AnimeContext"; 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -13,8 +13,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 const App = () => (
-  <UserProvider>  {/* Обгортка контексту користувача */}
-    <AnimeProvider>  {/* Обгортка контексту аніме */}
+  <UserProvider>  
+    <AnimeProvider>  
       <Router>
         <Header />
         <Routes>

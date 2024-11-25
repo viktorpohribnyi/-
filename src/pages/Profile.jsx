@@ -128,7 +128,6 @@ const Profile = () => {
   const [bio, setBio] = useState("");
   const [gender, setGender] = useState("");
 
-  // Ініціалізація даних профілю
   useEffect(() => {
     if (user) {
       setNewUsername(user.username || "");

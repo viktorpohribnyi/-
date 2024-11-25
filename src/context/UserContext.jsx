@@ -5,7 +5,6 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Завантаження користувача з localStorage під час ініціалізації
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -13,7 +12,6 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  // Автоматичне збереження користувача в localStorage при кожній зміні user
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));

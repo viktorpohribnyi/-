@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  background-color: #2c2c54; /* Той самий колір, як у хедері */
+  background-color: #2c2c54; 
   color: white;
   text-align: center;
   padding: 20px;
